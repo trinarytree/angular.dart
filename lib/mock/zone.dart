@@ -104,6 +104,7 @@ void clockTick({int days: 0,
   var remainingTimers = [];
   var queue = new List.from(_timerQueue);
   _timerQueue.clear();
+  microLeap();
   queue
     .where((_TimerSpec spec) => spec.isActive)
     .forEach((_TimerSpec spec) {
@@ -124,8 +125,8 @@ void clockTick({int days: 0,
       } else {
         spec.duration -= tickDuration;
         if (spec.duration <= Duration.ZERO) {
-          microLeap();
           spec.fn();
+          microLeap();
         } else {
           remainingTimers.add(spec);
         }
