@@ -6,6 +6,7 @@ library angular.core.annotation;
 export "package:angular/core/annotation_src.dart" show
     NgAttachAware,
     NgDetachAware,
+    NgShadowRootAware,
 
     NgFilter,
     NgInjectableService,

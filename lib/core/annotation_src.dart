@@ -1,6 +1,7 @@
 library angular.core.annotation_src;
 
 import "package:di/di.dart" show Injector, Visibility;
+import "dart:html" show ShadowRoot;
 
 RegExp _ATTR_NAME = new RegExp(r'\[([^\]]+)\]$');
 
@@ -529,6 +530,16 @@ abstract class NgAttachAware {
  */
 abstract class NgDetachAware {
   void detach();
+}
+
+/**
+ * Implementing components [onShadowRoot] method will be called when
+ * the template for the component has been loaded and inserted into Shadow DOM.
+ * It is guaranteed that when [onShadowRoot] is invoked, that shadow DOM
+ * has been loaded and is ready.
+ */
+abstract class NgShadowRootAware {
+  void onShadowRoot(ShadowRoot shadowRoot);
 }
 
 
