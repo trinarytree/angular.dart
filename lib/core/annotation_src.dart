@@ -1,6 +1,7 @@
 library angular.core.annotation_src;
 
 import "package:di/di.dart" show Injector, Visibility;
+import "dart:html" show ShadowRoot;
 
 RegExp _ATTR_NAME = new RegExp(r'\[([^\]]+)\]$');
 
